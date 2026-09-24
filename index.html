@@ -5,25 +5,119 @@
     <link rel="icon" type="image/svg+xml" href="/team_project_js/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Mulish:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <script type="module" crossorigin src="/team_project_js/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/team_project_js/assets/index-Bzem_qjb.css">
+    <link rel="stylesheet" crossorigin href="/team_project_js/assets/index-DTeAXNFO.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
-    <nav class="nav"></nav>
+  <div class="container header__container">
+    <a
+      class="header__logo"
+      href="#hero"
+      aria-label="Maria Kovalenko Photography"
+    >
+      <svg class="header__logo-icon" aria-hidden="true">
+        <use href="/team_project_js/assets/sprite-9QtdVXji.svg#logo"></use>
+      </svg>
+    </a>
+
+    <div class="header__column">
+      <nav class="header__nav" aria-label="Site navigation">
+        <ul class="header__list">
+          <li class="header__item">
+            <a class="header__link" href="#about-us">About Me</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#benefits">Benefits</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#faq">FAQ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="header__btn" href="#contacts">Book a Session</a>
+    </div>
+
+    <button
+      class="header__burger"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        class="header__burger-icon"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      >
+        <use href="/team_project_js/assets/sprite-9QtdVXji.svg#icon-menu"></use>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="container mobile-menu__top">
+      <a
+        class="header__logo"
+        href="#hero"
+        aria-label="Maria Kovalenko Photography"
+      >
+        <svg class="header__logo-icon" aria-hidden="true">
+          <use href="/team_project_js/assets/sprite-9QtdVXji.svg#logo"></use>
+        </svg>
+      </a>
+
+      <button class="mobile-menu__close" type="button" aria-label="Close menu">
+        <svg
+          class="mobile-menu__close-icon"
+          width="24"
+          height="24"
+          aria-hidden="true"
+        >
+          <use href="/team_project_js/assets/sprite-9QtdVXji.svg#icon-close"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="container mobile-menu__body">
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="#about-us">About Me</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="#benefits">Benefits</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="#faq">FAQ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a class="mobile-menu__btn" href="#contacts">Book a Session</a>
+    </div>
   </div>
 </header>
 
 
     <main>
       <!-- Loads the specified .html file -->
-      <header class="header">
-  <div class="container">
-    <nav class="nav"></nav>
-  </div>
-</header>
-
     </main>
 
     <footer class="footer">
