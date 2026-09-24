@@ -7,7 +7,7 @@
     padding: 64px 32px;
 }
 
-.about-us-icon {
+.about-us_icon {
     width: 300px;
     height: 20px;
     fill: currentColor;
@@ -15,7 +15,7 @@
     margin-bottom: 24px;
 }
 
-.about-us-heading {
+.about-us_heading {
     margin-bottom: 24px;
     font-weight: 500;
     font-size: 28px;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-.about-us-text {
+.about-us_text {
     font-size: 18px;
     font-weight: 400;
     line-height: 150%;
@@ -31,7 +31,7 @@
     text-align: center;
 }
 
-.about-us-photo {
+.about-us_photo {
     display: block;
     width: 100%;
     height: auto;
@@ -39,7 +39,7 @@
 }
 
 /* tablet */
-@media(min-width: 375px){
+@media (min-width: 375px){
     .about-us {
             max-width: 768px;
             padding: 64px 32px;
@@ -47,7 +47,7 @@
 }
 
 /* desktop */
-@media(min-width: 768px){
+@media (min-width: 768px){
     .about-us{
         max-width: 1440px;
         padding: 92px 64px;
