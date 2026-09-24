@@ -1,0 +1,9 @@
+.contacts {
+  padding: 64px 0;
+  background-color: #fbf9f1;
+}
+
+.contacts-container {
+  display: flex;
+  gap: 80px;
+}
