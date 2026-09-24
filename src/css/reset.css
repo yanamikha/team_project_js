@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -12,7 +18,8 @@ p:last-child {
   margin-bottom: 0;
 }
 
-ul {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -24,11 +31,34 @@ a {
 }
 
 button {
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: currentColor;
+  background-color: transparent;
   cursor: pointer;
 }
 
-img {
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: currentColor;
+}
+
+img,
+video {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+svg {
+  display: block;
+}
+
+address {
+  font-style: normal;
 }
