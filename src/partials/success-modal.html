@@ -6,13 +6,21 @@
         <use href="../img/sprite.svg#icon-close"></use>
       </svg>
     </button>
-    <img
-      src="../img/working-table.png"
-      class="modal__img"
-      alt="An elegant and styled flat lay composition for a wedding photographer's"
-      width="295"
-      height="207"
-    />
+    <picture class="modal__picture">
+      <source media="(min-width: 1440px)" srcset="../img/working-table.png" />
+      <source media="(min-width: 768px)" srcset="../img/working-table.png" />
+      <source
+        media="(min-width: 375px)"
+        srcset="../img/working-table-mobile.png"
+      />
+
+      <img
+        class="modal__img"
+        src="../img/working-table-mobile.png"
+        alt="An elegant and styled flat lay composition for a wedding photographer's"
+        loading="lazy"
+      />
+    </picture>
     <p class="modal__text">
       I have received your message and I'm so excited about your interest! I
       will get in touch with you within 24-48 hours to discuss the details of
