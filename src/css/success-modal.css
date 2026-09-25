@@ -26,6 +26,7 @@
 .modal {
   position: relative;
   width: 100%;
+  max-width: 335px;
   margin: auto;
   border-radius: 24px;
   background: var(--color-surface);
