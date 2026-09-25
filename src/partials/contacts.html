@@ -1,7 +1,12 @@
-<section class="contacts">
+<section class="contacts" id="contacts">
   <div class="container contacts-container">
     <div class="contacts-info">
-<h2 class="contacts-title">Let's Tell Your Story</h2>
+<img
+        class="contacts-decoration"
+        src="../img/decpration.svg"
+        alt=""
+      />
+      <h2 class="contacts-title">Let's Tell Your Story</h2>
 <p class="contacts-text">
   I can't wait to hear more about your wedding! Tell me about your plans, and
   I'll be in touch to discuss how we can create magic together.
@@ -38,5 +43,45 @@
 </li>
 </ul>
 </div>
+<form class="contacts-form">
+  <label class="contacts-label">
+  Name*
+  <input
+    class="contacts-input"
+    type="text"
+    name="name"
+    placeholder="Maria"
+    minlength="2"
+    maxlength="64"
+    required
+  />
+  <span class="contacts-error"></span>
+</label>
+<label class="contacts-label">
+  Phone*
+  <input
+    class="contacts-input"
+    type="tel"
+    name="phone"
+    placeholder="+1 (202) 111 2323"
+    required
+  />
+  <span class="contacts-error"></span>
+</label>
+<label class="contacts-label">
+  Message
+  <textarea
+    class="contacts-textarea"
+    name="message"
+    minlength="5"
+    maxlength="256"
+    placeholder="Tell me a little about you and your special day. Don't forget to include your wedding date, venue, and what you're most excited about..."
+  ></textarea>
+  <span class="contacts-error"></span>
+</label>
+<button class="contacts-button" type="submit">
+  Let's Talk
+</button>
+</form>
   </div>
 </section>
