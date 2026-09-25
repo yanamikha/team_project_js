@@ -63,8 +63,7 @@ p {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
-  font-family: Mulish;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 h2 {
@@ -76,4 +75,5 @@ h2 {
 
 body.no-scroll {
   overflow: hidden;
+  padding-right: var(--scrollbar-width, 0px);
 }
