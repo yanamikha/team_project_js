@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Golden Hour</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,8 +20,15 @@
 
     <main>
       <!-- Loads the specified .html file -->
-<load src="./partials/about-us.html" />
-<load src="./partials/contacts.html" />
+      <load src="./partials/success-modal.html" />
+      <load src="./partials/about-us.html" />
+
+      //////////////TODO move the button to section contacts when it will be
+      ready///////////////////////
+      <button class="header__btn" data-modal-open type="button">
+        Let's Talk
+      </button>
+      <load src="./partials/contacts.html" />
      
     </main>
 

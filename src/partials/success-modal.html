@@ -1,0 +1,31 @@
+<section class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <h2 class="modal__header">Thank You for Your Inquiry!</h2>
+    <button type="button" class="close-btn" data-modal-close>
+      <svg width="24" height="24" class="close-btn__icon">
+        <use href="./img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+    <picture class="modal__picture">
+      <source media="(min-width: 1440px)" srcset="./img/working-table.png" />
+      <source media="(min-width: 768px)" srcset="./img/working-table.png" />
+      <source
+        media="(min-width: 375px)"
+        srcset="./img/working-table-mobile.png"
+      />
+
+      <img
+        class="modal__img"
+        src="./img/working-table-mobile.png"
+        alt="An elegant and styled flat lay composition for a wedding photographer's"
+        loading="lazy"
+      />
+    </picture>
+    <p class="modal__text">
+      I have received your message and I'm so excited about your interest! I
+      will get in touch with you within 24-48 hours to discuss the details of
+      your wedding day. In the meantime, feel free to browse my portfolio or
+      follow me on Instagram for more inspiration.
+    </p>
+  </div>
+</section>
