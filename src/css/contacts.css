@@ -1,0 +1,265 @@
+/* =========================
+   MOBILE — 375px
+   ========================= */
+
+.contacts {
+  padding: 64px 0;
+  background-color: #fbf9f1;
+}
+
+.container.contacts-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contacts-info {
+  width: 100%;
+}
+
+.contacts-decoration {
+  display: block;
+  width: 300px;
+  height: 20px;
+  margin-bottom: 24px;
+}
+
+.contacts-title {
+  margin-bottom: 24px;
+
+  font-family: 'Cormorant', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.contacts-text {
+  margin-bottom: 32px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contacts-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contacts-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.contacts-link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: #1d1d1b;
+  text-decoration: underline;
+}
+
+.contacts-form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contacts-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contacts-input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+
+  font: inherit;
+  color: #000;
+
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 6px;
+  outline: none;
+}
+
+.contacts-input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.contacts-input:focus {
+  border-color: #b09a0c;
+}
+
+.contacts-textarea {
+  width: 100%;
+  height: 180px;
+  padding: 12px;
+
+  font: inherit;
+  color: #000;
+
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 6px;
+  outline: none;
+
+  resize: none;
+}
+
+.contacts-textarea::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.contacts-textarea:focus {
+  border-color: #b09a0c;
+}
+
+.contacts-input:focus::placeholder,
+.contacts-textarea:focus::placeholder {
+  color: transparent;
+}
+
+.contacts-input.is-error,
+.contacts-textarea.is-error {
+  border-color: #c40000;
+  color: #c40000;
+}
+
+.contacts-input.is-error::placeholder,
+.contacts-textarea.is-error::placeholder {
+  color: #c40000;
+}
+
+.contacts-error {
+  min-height: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #c40000;
+}
+
+.contacts-button {
+  width: 100%;
+  height: 44px;
+  padding: 10px 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+
+  background-color: #dcc110;
+  border: 1px solid #dcc110;
+  border-radius: 6px;
+}
+
+.contacts-button:hover,
+.contacts-button:focus {
+  background-color: transparent;
+  border-color: #dcc110;
+}
+
+.contacts-button:active {
+  background-color: #e6d357;
+  border-color: #dcc110;
+}
+
+.contacts-button:disabled {
+  background-color: #dcc110;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   TABLET — від 768px
+   ========================= */
+
+@media screen and (min-width: 768px) {
+  .container.contacts-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .contacts-title {
+    text-align: left;
+  }
+
+  .contacts-text {
+    text-align: left;
+  }
+
+  .contacts-button {
+    width: 310px;
+  }
+}
+
+
+/* =========================
+   DESKTOP — від 1440px
+   ========================= */
+
+@media screen and (min-width: 1440px) {
+  .contacts {
+    padding: 92px 0;
+  }
+
+  .container.contacts-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  .contacts-container {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .contacts-info {
+    width: 644px;
+  }
+
+  .contacts-form {
+    width: 644px;
+  }
+
+  .contacts-title {
+    font-size: 48px;
+  }
+
+  .contacts-text {
+    margin-bottom: 40px;
+  }
+
+  .contacts-link {
+    font-size: 18px;
+  }
+}
