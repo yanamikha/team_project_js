@@ -219,6 +219,27 @@
   }
 }
 
+.contacts-notification {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+
+  max-width: 320px;
+  padding: 12px 16px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+
+  background-color: #c40000;
+  border-radius: 6px;
+}
+
+.contacts-notification.is-hidden {
+  display: none;
+}
+
 /* =========================
    TABLET — від 768px
    ========================= */

@@ -4,13 +4,26 @@ const phoneInput = form.querySelector('input[name="phone"]');
 const messageInput = form.querySelector('textarea[name="message"]');
 const submitButton = form.querySelector('.contacts-button');
 const loader = form.querySelector('.contacts-loader');
-const ORDERS_URL =
-  'https://wedding-photographer.b.goit.study/api/orders';
+const notification = document.querySelector('.contacts-notification');
+
+const ORDERS_URL = 'https://wedding-photographer.b.goit.study/api/orders';
 
 function validateName() {
   const value = nameInput.value.trim();
 
   return value.length >= 2 && value.length <= 64;
+}
+
+function validatePhone() {
+  const digits = phoneInput.value.replace(/\D/g, '');
+
+  return /^\d{12}$/.test(digits);
+}
+
+function validateMessage() {
+  const value = messageInput.value.trim();
+
+  return value === '' || (value.length >= 5 && value.length <= 256);
 }
 
 function showNameError() {
@@ -97,50 +110,49 @@ form.addEventListener('submit', event => {
   }
 
   const orderData = {
-  name: nameInput.value.trim(),
-  phone: phoneInput.value.replace(/\D/g, ''),
-  message: messageInput.value.trim(),
-};
-console.log(orderData);
+    name: nameInput.value.trim(),
+    phone: phoneInput.value.replace(/\D/g, ''),
+  };
 
-submitButton.disabled = true;
+  const message = messageInput.value.trim();
 
-loader.classList.remove('is-hidden');
+  if (message) {
+    orderData.message = message;
+  }
 
-fetch(ORDERS_URL, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(orderData),
-})
-  .then(response => {
-    console.log('Status:', response.status);
+  submitButton.disabled = true;
+  loader.classList.remove('is-hidden');
 
-    return response.json();
+  fetch(ORDERS_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),
   })
-  .then(data => {
-    console.log('Server response:', data);
-    form.reset();
-  })
-  .catch(error => {
-  console.error('Request error:', error);
-})
-.finally(() => {
-  submitButton.disabled = false;
-  loader.classList.add('is-hidden');
+    .then(async response => {
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong.');
+      }
+
+      return data;
+    })
+    .then(() => {
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Request error:', error);
+
+      notification.classList.remove('is-hidden');
+
+      setTimeout(() => {
+        notification.classList.add('is-hidden');
+      }, 3000);
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      loader.classList.add('is-hidden');
+    });
 });
-
-});
-
-function validatePhone() {
-  const digits = phoneInput.value.replace(/\D/g, '');
-
-  return /^\d{12}$/.test(digits);
-}
-
-function validateMessage() {
-  const value = messageInput.value.trim();
-
-  return value === '' || (value.length >= 5 && value.length <= 256);
-}
