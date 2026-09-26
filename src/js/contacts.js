@@ -143,14 +143,17 @@ form.addEventListener('submit', event => {
       form.reset();
     })
     .catch(error => {
-      console.error('Request error:', error);
+  console.error('Request error:', error);
 
-      notification.classList.remove('is-hidden');
+  notification.textContent =
+    error.message || 'Something went wrong. Please try again.';
 
-      setTimeout(() => {
-        notification.classList.add('is-hidden');
-      }, 3000);
-    })
+  notification.classList.remove('is-hidden');
+
+  setTimeout(() => {
+    notification.classList.add('is-hidden');
+  }, 3000);
+})
     .finally(() => {
       submitButton.disabled = false;
       loader.classList.add('is-hidden');
