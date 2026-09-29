@@ -156,4 +156,14 @@ ul.portfolio__categories {
   .portfolio__gallery {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .portfolio__gallery:has(> :nth-child(1):last-child) {
+    grid-template-columns: minmax(0, 421px);
+    justify-content: center;
+  }
+
+  .portfolio__gallery:has(> :nth-child(2):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 421px));
+    justify-content: center;
+  }
 }
