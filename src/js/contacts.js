@@ -1,13 +1,16 @@
 import { openModal } from './success-modal.js';
+import { createOrder } from './api.js';
+
 const form = document.querySelector('.contacts-form');
 const nameInput = form.querySelector('input[name="name"]');
 const phoneInput = form.querySelector('input[name="phone"]');
 const messageInput = form.querySelector('textarea[name="message"]');
 const submitButton = form.querySelector('.contacts-button');
-const loader = form.querySelector('.contacts-loader');
-const notification = document.querySelector('.contacts-notification');
+const loader = form.querySelector('.loader');
 
-const ORDERS_URL = 'https://wedding-photographer.b.goit.study/api/orders';
+// =========================
+// VALIDATION
+// =========================
 
 function validateName() {
   const value = nameInput.value.trim();
@@ -27,83 +30,101 @@ function validateMessage() {
   return value === '' || (value.length >= 5 && value.length <= 256);
 }
 
+// =========================
+// ERROR HELPERS
+// =========================
+
+function getErrorElement(input) {
+  return input.closest('.contacts-label').querySelector('.contacts-error');
+}
+
+// =========================
+// NAME
+// =========================
+
 function showNameError() {
-  const errorElement = nameInput
-    .closest('.contacts-label')
-    .querySelector('.contacts-error');
+  const errorElement = getErrorElement(nameInput);
 
   nameInput.classList.add('is-error');
   errorElement.textContent = 'Name must be between 2 and 64 characters.';
 }
 
 function clearNameError() {
-  const errorElement = nameInput
-    .closest('.contacts-label')
-    .querySelector('.contacts-error');
+  const errorElement = getErrorElement(nameInput);
 
   nameInput.classList.remove('is-error');
   errorElement.textContent = '';
 }
 
+// =========================
+// PHONE
+// =========================
+
 function showPhoneError() {
-  const errorElement = phoneInput
-    .closest('.contacts-label')
-    .querySelector('.contacts-error');
+  const errorElement = getErrorElement(phoneInput);
 
   phoneInput.classList.add('is-error');
   errorElement.textContent = 'Phone must contain exactly 12 digits.';
 }
 
 function clearPhoneError() {
-  const errorElement = phoneInput
-    .closest('.contacts-label')
-    .querySelector('.contacts-error');
+  const errorElement = getErrorElement(phoneInput);
 
   phoneInput.classList.remove('is-error');
   errorElement.textContent = '';
 }
 
+phoneInput.addEventListener('input', () => {
+  if (validatePhone()) {
+    clearPhoneError();
+  }
+});
+
+// =========================
+// MESSAGE
+// =========================
+
 function showMessageError() {
-  const errorElement = messageInput
-    .closest('.contacts-label')
-    .querySelector('.contacts-error');
+  const errorElement = getErrorElement(messageInput);
 
   messageInput.classList.add('is-error');
   errorElement.textContent = 'Message must be between 5 and 256 characters.';
 }
 
 function clearMessageError() {
-  const errorElement = messageInput
-    .closest('.contacts-label')
-    .querySelector('.contacts-error');
+  const errorElement = getErrorElement(messageInput);
 
   messageInput.classList.remove('is-error');
   errorElement.textContent = '';
 }
 
-form.addEventListener('submit', event => {
+// =========================
+// FORM SUBMIT
+// =========================
+
+form.addEventListener('submit', async event => {
   event.preventDefault();
 
   const isNameValid = validateName();
   const isPhoneValid = validatePhone();
   const isMessageValid = validateMessage();
 
-  if (!isNameValid) {
-    showNameError();
-  } else {
+  if (isNameValid) {
     clearNameError();
+  } else {
+    showNameError();
   }
 
-  if (!isPhoneValid) {
-    showPhoneError();
-  } else {
+  if (isPhoneValid) {
     clearPhoneError();
+  } else {
+    showPhoneError();
   }
 
-  if (!isMessageValid) {
-    showMessageError();
-  } else {
+  if (isMessageValid) {
     clearMessageError();
+  } else {
+    showMessageError();
   }
 
   if (!isNameValid || !isPhoneValid || !isMessageValid) {
@@ -124,40 +145,20 @@ form.addEventListener('submit', event => {
   submitButton.disabled = true;
   loader.classList.remove('is-hidden');
 
-  fetch(ORDERS_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(orderData),
-  })
-    .then(async response => {
-      const data = await response.json();
+  try {
+    await createOrder(orderData);
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong.');
-      }
+    form.reset();
 
-      return data;
-    })
-    .then(() => {
-      form.reset();
-      openModal();
-    })
-    .catch(error => {
-  console.error('Request error:', error);
+    clearNameError();
+    clearPhoneError();
+    clearMessageError();
 
-  notification.textContent =
-    error.message || 'Something went wrong. Please try again.';
-
-  notification.classList.remove('is-hidden');
-
-  setTimeout(() => {
-    notification.classList.add('is-hidden');
-  }, 3000);
-})
-    .finally(() => {
-      submitButton.disabled = false;
-      loader.classList.add('is-hidden');
-    });
+    openModal();
+  } catch (error) {
+    console.error('Request error:', error);
+  } finally {
+    submitButton.disabled = false;
+    loader.classList.add('is-hidden');
+  }
 });

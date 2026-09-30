@@ -29,7 +29,7 @@
 }
 
 .footer__logo {
-   width: 206px;
+  width: 206px;
   height: auto;
 }
 
@@ -44,6 +44,7 @@
 }
 
 .footer__cols {
+  gap: 40px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -158,8 +159,8 @@
   }
 
   .footer__logo {
-    width: 206px;
-  height: auto;
+    width: 128px;
+    height: auto;
   }
 
   .footer__cols {
@@ -174,6 +175,10 @@
 
   .footer__copy {
     text-align: left;
+  }
+
+  .footer__menu {
+    align-items: start;
   }
 }
 

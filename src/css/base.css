@@ -10,15 +10,12 @@
   --color-hover-bg: rgba(0, 0, 0, 0.15);
   --color-error: #c40000;
 
-
   --font-main: 'Mulish', sans-serif;
   --font-display: 'Cormorant', serif;
-
 
   --section-sm: 32px;
   --section-md: 48px;
   --section-lg: 64px;
-
 
   --radius: 6px;
   --transition: 250ms ease;
@@ -144,6 +141,20 @@ a[aria-disabled='true'] {
 .decoration {
   height: 20.3px;
   margin: 0 auto 24px;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #b09a0c;
+  border-radius: 50%;
+  animation: contacts-spin 0.8s linear infinite;
+}
+
+.loader.is-hidden {
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {

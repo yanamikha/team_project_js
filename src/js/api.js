@@ -23,15 +23,12 @@ export async function getPhotos(params) {
   return response.data;
 }
 
-export async function getFeedbacks(params) {
-  const response = await api.get('/feedbacks', {
-    params: params ? { params } : {},
-  });
-
+export async function getFeedbacks() {
+  const response = await api.get('/feedbacks');
   return response.data;
 }
 
 export async function createOrder(orderData) {
-  const response = await api.post('/order', orderData);
+  const response = await api.post('/orders', orderData);
   return response.data;
 }

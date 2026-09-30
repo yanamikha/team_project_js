@@ -7,6 +7,7 @@ const categoriesContainer = document.querySelector('ul.portfolio__categories');
 const loadMoreBtn = document.querySelector('#load-more-btn');
 const loaderEl = document.querySelector('#loader');
 const loaderTextEl = document.querySelector('#loaderText');
+const galleryEl = document.querySelector('ul.portfolio__gallery');
 
 const LIMIT = 3;
 const INITIAL_PAGES = 3;
@@ -99,7 +100,15 @@ loadMoreBtn.addEventListener('click', async () => {
 
     totalCount = answer.totalItems;
 
+    const oldCardsCount = galleryEl.children.length;
+
     createGallery(answer.weddingPhotos, true);
+
+    const firstNewCard = galleryEl.children[oldCardsCount + LIMIT - 1];
+    firstNewCard?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
   } catch (error) {
     page -= 1;
 
